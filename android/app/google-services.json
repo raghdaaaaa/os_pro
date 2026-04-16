@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "500132425867",
+    "project_id": "dosmart-app-61928",
+    "storage_bucket": "dosmart-app-61928.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500132425867:android:1337a91be76177fa14248e",
+        "android_client_info": {
+          "package_name": "com.ASRZ.dosmart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTPFkZrzFoUP40FBjy86PUy2yVEhikHpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
