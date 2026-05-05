@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:brain_stack/Core/Constants/app_color.dart';
-import '../Widgets/home_header.dart';
-import '../Widgets/progress_card.dart';
-import '../Widgets/schedule_grid.dart';
-import '../../../../Core/Constants/assets.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Widgets/home_header.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Widgets/progress_card.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Widgets/schedule_grid.dart';
+import 'package:brain_stack/Core/Constants/assets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

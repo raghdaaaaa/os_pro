@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../Core/Constants/app_color.dart';
-import '../../../../Core/Constants/app_strings.dart';
-import '../../../../Core/Constants/assets.dart';
-import '../../../../Core/Routing/routes.dart';
-import '../Widgets/auth_text_field.dart';
+import 'package:brain_stack/Core/Constants/app_color.dart';
+import 'package:brain_stack/Core/Constants/app_strings.dart';
+import 'package:brain_stack/Core/Constants/assets.dart';
+import 'package:brain_stack/Core/Routing/routes.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Widgets/auth_text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

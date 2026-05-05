@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../../Core/Constants/app_color.dart';
-import '../../Data/Models/onboarding_model.dart';
+import 'package:brain_stack/Core/Constants/app_color.dart';
+import 'package:brain_stack/Featurs/Onboarding/Data/Models/onboarding_model.dart';
 
 class OnboardingBody extends StatelessWidget {
   final OnboardingModel data;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../../Core/Constants/app_color.dart';
-import '../../../../Core/Constants/app_strings.dart';
-import '../../../../Core/Routing/routes.dart';
-import '../Widgets/onboarding_body.dart';
-import '../../Data/Models/onboarding_model.dart';
+import 'package:brain_stack/Core/Constants/app_color.dart';
+import 'package:brain_stack/Core/Constants/app_strings.dart';
+import 'package:brain_stack/Core/Routing/routes.dart';
+import 'package:brain_stack/Featurs/Onboarding/Presentation/Widgets/onboarding_body.dart';
+import 'package:brain_stack/Featurs/Onboarding/Data/Models/onboarding_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

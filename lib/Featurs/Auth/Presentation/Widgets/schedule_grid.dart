@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../Core/Constants/app_color.dart';
-import '../../../../Core/Constants/assets.dart';
+import 'package:brain_stack/Core/Constants/app_color.dart';
+import 'package:brain_stack/Core/Constants/assets.dart';
 
 class ScheduleGrid extends StatelessWidget {
   const ScheduleGrid({super.key});

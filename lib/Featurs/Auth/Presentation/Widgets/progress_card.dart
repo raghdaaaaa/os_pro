@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../Core/Constants/app_color.dart';
+import 'package:brain_stack/Core/Constants/app_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProgressCard extends StatelessWidget {

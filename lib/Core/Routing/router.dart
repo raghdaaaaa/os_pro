@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import './routes.dart';
-import '../../../Featurs/Auth/Presentation/Screens/signin_screen.dart';
-import '../../../Featurs/Auth/Presentation/Screens/signup_screen.dart';
-import '../../../Featurs/Auth/Presentation/Screens/home_screen.dart';
-import '../../../Featurs/Onboarding/Presentation/Screens/onboarding_screen.dart';
+import 'package:brain_stack/Core/Routing/routes.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Screens/signin_screen.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Screens/signup_screen.dart';
+import 'package:brain_stack/Featurs/Auth/Presentation/Screens/home_screen.dart';
+import 'package:brain_stack/Featurs/Onboarding/Presentation/Screens/onboarding_screen.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {

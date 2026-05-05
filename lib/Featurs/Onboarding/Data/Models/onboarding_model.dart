@@ -1,5 +1,5 @@
-import '../../../../Core/Constants/app_strings.dart';
-import '../../../../Core/Constants/assets.dart';
+import 'package:brain_stack/Core/Constants/app_strings.dart';
+import 'package:brain_stack/Core/Constants/assets.dart';
 
 class OnboardingModel {
   final String image;
