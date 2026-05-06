@@ -23,6 +23,9 @@ class TaskController extends ChangeNotifier {
   final _auth        = FirebaseAuth.instance;
 
   String get userId => _auth.currentUser?.uid ?? '';
+  void setTitle(String value)       { title       = value; notifyListeners(); }
+  void setDescription(String value) { description = value; notifyListeners(); }
+  void setStartTime(String value)   { startTime   = value; notifyListeners(); }
 
   // Form field values — teammates bind TextControllers to these
   String title       = '';

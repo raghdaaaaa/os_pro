@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:brain_stack/Core/Constants/app_color.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../../Core/Constants/app_color.dart';
 
 class ProgressCard extends StatelessWidget {
-  const ProgressCard({super.key});
+  final double progress;
+  final String message;
+
+  const ProgressCard({
+    super.key,
+    required this.progress,
+    required this.message,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final barWidth = (screenWidth - 48 - 130 - 50) * progress;
+
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal:25, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(40),
+        borderRadius: BorderRadius.circular(42),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(60),
@@ -24,9 +33,9 @@ class ProgressCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "You've completed\n70% of today's goals",
-            style: TextStyle(
+          Text(
+            message,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 23,
               fontWeight: FontWeight.normal,
@@ -38,14 +47,13 @@ class ProgressCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // View Task Button
               SizedBox(
                 height: 47,
                 width: 130,
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.accentBeige,
+                    backgroundColor: AppColors.primaryCardColor,
                     foregroundColor: AppColors.textPrimary,
                     elevation: 0,
                     shape: const StadiumBorder(),
@@ -55,12 +63,11 @@ class ProgressCard extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
-                      fontFamily:'Cairo',
+                      fontFamily: 'Cairo',
                     ),
                   ),
                 ),
               ),
-              // Progress Indicator
               Stack(
                 children: [
                   Container(
@@ -72,10 +79,10 @@ class ProgressCard extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 77, // 70% progress of 110
+                    width: barWidth.clamp(0, 100),
                     height: 10,
                     decoration: BoxDecoration(
-                      color: AppColors.accentBeige,
+                      color: AppColors.primaryCardColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),

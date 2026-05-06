@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:brain_stack/Core/Constants/app_color.dart';
-import 'package:brain_stack/Core/Constants/app_strings.dart';
-import 'package:brain_stack/Core/Routing/routes.dart';
-import 'package:brain_stack/Featurs/Onboarding/Presentation/Widgets/onboarding_body.dart';
-import 'package:brain_stack/Featurs/Onboarding/Data/Models/onboarding_model.dart';
+import '../../../../Core/Constants/app_color.dart';
+import '../../../../Core/Constants/app_strings.dart';
+import '../../../../Core/Routing/routes.dart';
+import '../Widgets/onboarding_body.dart';
+import '../../../../Core/Widgets/primary_button.dart';
+import '../../Data/Models/onboarding_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -69,73 +70,37 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final isLast = _currentPage == _models.length - 1;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25, vertical :15),
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
       child: isLast
           ? Center(
-              child: SizedBox(
-                width: 140,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: _navigateToLogin,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryColor,
-                    foregroundColor: AppColors.white,
-                    elevation: 0,
-                    shape: const StadiumBorder(),
-                  ),
-                  child: const Text(
-                    AppStrings.start,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Poppins',
-                    ),
-                  ),
-                ),
-              ),
-            )
+        child: PrimaryButton(
+          label: AppStrings.start,
+          onPressed: _navigateToLogin,
+          width: 140,
+        ),
+      )
           : Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // Skip Button - Simple Text
-                GestureDetector(
-                  onTap: _navigateToLogin,
-                  child: const Text(
-                    AppStrings.skip,
-                    style: TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primaryColor,
-                      fontFamily: 'Poppins',
-                    ),
-                  ),
-                ),
-
-                // Next Button - Dark Pill
-                SizedBox(
-                  width: 140,
-                  height: 46, // Thinner height
-                  child: ElevatedButton(
-                    onPressed: _goToNext,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.primaryColor,
-                      foregroundColor: AppColors.white,
-                      elevation: 0,
-                      shape: const StadiumBorder(),
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: const Text(
-                      AppStrings.next,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: _navigateToLogin,
+            child: const Text(
+              AppStrings.skip,
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.w600,
+                color: AppColors.primaryColor,
+                fontFamily: 'Poppins',
+              ),
             ),
+          ),
+          PrimaryButton(
+            label: AppStrings.next,
+            onPressed: _goToNext,
+            width: 140,
+          ),
+        ],
+      ),
     );
   }
 }

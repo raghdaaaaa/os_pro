@@ -4,21 +4,21 @@ import 'package:brain_stack/Core/Constants/app_color.dart';
 class AuthTextField extends StatelessWidget {
   final String hint;
   final String? prefixIconPath;
-  final IconData? prefixIconData;
   final bool obscureText;
   final Widget? suffixIcon;
   final TextInputType keyboardType;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   const AuthTextField({
     super.key,
     required this.hint,
     this.prefixIconPath,
-    this.prefixIconData,
     this.obscureText = false,
     this.suffixIcon,
     this.keyboardType = TextInputType.text,
     this.controller,
+    this.validator,
   });
 
   @override
@@ -26,13 +26,14 @@ class AuthTextField extends StatelessWidget {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-        color: AppColors.accentBeige,
+        color: AppColors.primaryCardColor,
         borderRadius: BorderRadius.circular(35),
       ),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
         obscureText: obscureText,
         keyboardType: keyboardType,
+        validator: validator,
         style: const TextStyle(
           fontFamily: 'Poppins',
           fontSize: 14,
@@ -41,9 +42,9 @@ class AuthTextField extends StatelessWidget {
         decoration: InputDecoration(
           prefixIcon: Padding(
             padding: const EdgeInsets.all(15.0),
-            child: prefixIconPath != null 
+            child: prefixIconPath != null
                 ? Image.asset(prefixIconPath!, width: 17, height: 17)
-                : Icon(prefixIconData, color: AppColors.textPrimary, size: 20),
+                : const SizedBox.shrink(),
           ),
           suffixIcon: suffixIcon,
           hintText: hint,

@@ -17,6 +17,16 @@ class AppStrings {
   static const String usernameLabel = "Username";
   static const String mobileNumberLabel = "Mobile Number";
 
+  // Forgot Password Screen
+  static const String forgotPasswordTitle = "Did you forgot you password?";
+  static const String forgotPasswordSubTitle = "Enter your email";
+  static const String forgotPasswordEmailHint = "@gmail.com";
+  static const String forgotPasswordConfirmButton = "Confirm";
+
+  // OTP Screen
+  static const String otpTitle = "Enter the OTP";
+  static const String otpConfirmButton = "Confirm";
+
   // PasswordLabel is same as Sign In Screen
   static const String signUpBtn = "Sign UP";
   static const String alreadyHaveAccount = "Already have an account? ";
@@ -62,4 +72,55 @@ class AppStrings {
   // Card 4 (View More)
   static const String viewMore = "Click to view\nmore";
   static const String scheduleCount = "+5 Schedule";
+
+  // Schedule
+  static const String scheduleTitle = "Schedule";
+  static const String scheduleTodayTasks = "Today's Tasks";
+  static const String scheduleFlutterApi = "Flutter API Integration";
+  static const String scheduleSketchingUi = "Sketching UI Wireframes";
+  static const String scheduleReviewProject = "Review Project Document";
+  static const String scheduleFocusMore = "Focus more";
+
+  // Add Task
+  static const String addTaskTitle = "Add Task";
+  static const String addTaskNameLabel = "Task Name";
+  static const String addTaskNameHint = "e.g. Flutter UI Implementation";
+  static const String addTaskCategoryLabel = "Category";
+  static const String addTaskDesign = "Design";
+  static const String addTaskDevelopment = "Development";
+  static const String addTaskStudy = "Study";
+  static const String addTaskDateLabel = "Date";
+  static const String addTaskTimeLabel = "Time";
+  static const String addTaskDescriptionLabel = "Description";
+  static const String addTaskDescriptionHint = "Write details about your task...";
+  static const String addTaskCreateButton = "Create Task";
+
+  // Focus Mode
+  static const String focusModeTitle = "Focus Mode";
+  static const String focusModeCurrentTask = "UI Wireframing";
+  static const String focusModeDesignTask = "Design Task";
+  static const String focusModeRemaining = "Remaining";
+  static const String focusModeGiveUp = "Give Up";
+
+  // Productivity
+  static const String productivityTitle = "Productivity";
+  static const String productivityCompletedTasks = "24";
+  static const String productivityTasksLabel = "Tasks Done";
+  static const String productivityHoursFocus = "05";
+  static const String productivityHoursLabel = "Hours Focus";
+  static const String productivityWeeklyOverview = "Weekly Overview";
+  static const String productivityRecentAchievement = "Recent Achievement";
+  static const String productivitySevenDaysStreak = "7 Days Streak";
+  static const String productivityStreakSubtitle = "You've been active for a week";
+
+  // Profile
+  static const String profileUserName = "Ahmed Developer";
+  static const String profileUserEmail = "ahmed@flutter.dev";
+  static const String profileEditProfile = "Edit Profile";
+  static const String profileSecurityPrivacy = "Security & Privacy";
+  static const String profileAppTheme = "App Theme";
+  static const String profileThemeLight = "Light";
+  static const String profileHelpSupport = "Help & Support";
+  static const String profileLogout = "Logout";
+
 }

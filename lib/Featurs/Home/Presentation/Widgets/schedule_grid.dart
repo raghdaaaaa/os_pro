@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:brain_stack/Core/Constants/app_color.dart';
-import 'package:brain_stack/Core/Constants/assets.dart';
+import '../../../../Core/Constants/app_color.dart';
+import '../../../../Core/Constants/assets.dart';
 
 class ScheduleGrid extends StatelessWidget {
   const ScheduleGrid({super.key});
@@ -17,7 +17,7 @@ class ScheduleGrid extends StatelessWidget {
               _buildTaskCard(
                 title: "Sketching in\nMy Journal",
                 time: "08:00 - 10:00",
-                color: AppColors.accentBeige,
+                color: AppColors.primaryCardColor,
                 image: AppAssets.taskSketching,
                 isTall: true,
               ),
@@ -41,7 +41,7 @@ class ScheduleGrid extends StatelessWidget {
               _buildTaskCard(
                 title: "Plan\nTomorrow's\nWins",
                 time: "11:00 - 12:00",
-                color: AppColors.accentBeige,
+                color: AppColors.primaryCard10Color,
                 image: AppAssets.taskPlan,
                 isTall: true,
               ),
