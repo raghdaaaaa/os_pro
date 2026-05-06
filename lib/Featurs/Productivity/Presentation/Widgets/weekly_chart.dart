@@ -4,7 +4,7 @@ import '../../../../Core/Constants/app_color.dart';
 class WeeklyChart extends StatelessWidget {
   const WeeklyChart({super.key});
 
-   static const List<double> _values = [0.5, 0.8, 0.50, 0.9, 0.7, 1.0, 0.4];
+  static const List<double> _values = [0.5, 0.8, 0.50, 0.9, 0.7, 1.0, 0.4];
   static const List<String> _days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   static const int _activeIndex = 5;
 
@@ -63,7 +63,7 @@ class _Bar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 46.5,
+      width: 45,
       height: 125 * heightFactor,
       decoration: BoxDecoration(
         color: isActive ? AppColors.primaryColor : AppColors.primaryCardColor,

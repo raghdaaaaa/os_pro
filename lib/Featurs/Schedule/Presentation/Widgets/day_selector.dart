@@ -15,6 +15,14 @@ class _DaySelectorState extends State<DaySelector> {
 
   late final List<_DayItem> _days = _buildDays();
 
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      widget.onDaySelected?.call(_days[_selectedIndex].fullDate);
+    });
+  }
+
   List<_DayItem> _buildDays() {
     final today = DateTime.now();
     final start = today.subtract(const Duration(days: 1));
@@ -37,8 +45,8 @@ class _DaySelectorState extends State<DaySelector> {
   Widget build(BuildContext context) {
     return Row(
       children: _days.asMap().entries.map((entry) {
-        final index    = entry.key;
-        final item     = entry.value;
+        final index = entry.key;
+        final item = entry.value;
         final isSelected = index == _selectedIndex;
 
         return Expanded(
@@ -65,7 +73,9 @@ class _DaySelectorState extends State<DaySelector> {
                         fontFamily: 'Poppins',
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: isSelected ? AppColors.white : AppColors.textSecondary,
+                        color: isSelected
+                            ? AppColors.white
+                            : AppColors.textSecondary,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -75,7 +85,9 @@ class _DaySelectorState extends State<DaySelector> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w800,
                         fontSize: 21,
-                        color: isSelected ? AppColors.white : AppColors.primaryColor,
+                        color: isSelected
+                            ? AppColors.white
+                            : AppColors.primaryColor,
                       ),
                     ),
                   ],
@@ -93,5 +105,6 @@ class _DayItem {
   final String day;
   final String date;
   final DateTime fullDate;
-  const _DayItem({required this.day, required this.date, required this.fullDate});
+  const _DayItem(
+      {required this.day, required this.date, required this.fullDate});
 }

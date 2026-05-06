@@ -16,8 +16,8 @@ class ProductivityScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final homeController    = context.read<HomeController>();
-    final rewardsController = context.read<RewardsController>();
+    final homeController = context.watch<HomeController>();
+    final rewardsController = context.watch<RewardsController>();
 
     return AppScaffold(
       currentNavIndex: 3,
@@ -25,20 +25,22 @@ class ProductivityScreen extends StatelessWidget {
         child: StreamBuilder(
           stream: homeController.tasksStream,
           builder: (context, taskSnapshot) {
-            final allTasks   = taskSnapshot.data ?? [];
+            final allTasks = taskSnapshot.data ?? [];
             final todayTasks = homeController.todayTasks(allTasks);
-            final completed  = homeController.completedCount(todayTasks);
-            final pending    = todayTasks.length - completed;
+            final completed = homeController.completedCount(todayTasks);
+            final pending = todayTasks.length - completed;
 
             return StreamBuilder<Map<String, dynamic>>(
               stream: rewardsController.rewardsStream,
               builder: (context, rewardsSnapshot) {
-                final rewards = rewardsSnapshot.data ?? {'points': 0, 'badges': []};
-                final points  = rewards['points'] as int? ?? 0;
-                final badge   = rewardsController.badgeLabel(points);
+                final rewards =
+                    rewardsSnapshot.data ?? {'points': 0, 'badges': []};
+                final points = rewards['points'] as int? ?? 0;
+                final badge = rewardsController.badgeLabel(points);
 
                 return SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 50),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 50),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -52,7 +54,6 @@ class ProductivityScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-
                       Row(
                         children: [
                           Expanded(
@@ -71,20 +72,19 @@ class ProductivityScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 50),
-
-                      const SectionHeader(title: AppStrings.productivityWeeklyOverview),
+                      const SectionHeader(
+                          title: AppStrings.productivityWeeklyOverview),
                       const SizedBox(height: 16),
                       const WeeklyChart(),
                       const SizedBox(height: 60),
-
-                      const SectionHeader(title: AppStrings.productivityRecentAchievement),
+                      const SectionHeader(
+                          title: AppStrings.productivityRecentAchievement),
                       const SizedBox(height: 16),
                       AchievementCard(
                         icon: AppAssets.rewaed,
                         title: badge,
                         subtitle: '$points points',
                       ),
-
                       const SizedBox(height: 100),
                     ],
                   ),
