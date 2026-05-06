@@ -12,6 +12,8 @@ class TaskService {
 
   // Live stream of all tasks for a user (auto-updates UI)
   Stream<List<TaskModel>> getTasks(String userId) {
+    if (userId.isEmpty) return const Stream.empty();
+
     return _tasks
         .where('userId', isEqualTo: userId)
         .orderBy('createdAt', descending: true)

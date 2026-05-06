@@ -183,4 +183,4 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
       ),
     );
   }
-}git add .
+}

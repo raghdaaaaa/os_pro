@@ -20,22 +20,26 @@ class RewardsService {
 
   // Live stream of user points and badges
   Stream<Map<String, dynamic>> getUserRewards(String userId) {
-    return _rewards.doc(userId).snapshots().map(
-      (doc) => doc.exists ? doc.data()! : {'points': 0, 'badges': []});
+    if (userId.isEmpty) return const Stream.empty();
+
+    return _rewards
+        .doc(userId)
+        .snapshots()
+        .map((doc) => doc.exists ? doc.data()! : {'points': 0, 'badges': []});
   }
 
   // Award a badge when user hits a point milestone
   Future<void> _checkBadges(DocumentReference ref) async {
-    final doc    = await ref.get();
-    final data   = doc.data() as Map<String, dynamic>;
+    final doc = await ref.get();
+    final data = doc.data() as Map<String, dynamic>;
     final points = data['points'] as int? ?? 0;
     final badges = List<String>.from(data['badges'] ?? []);
 
     final milestones = {
-      50:   '🥉 Starter',
-      100:  '🥈 Achiever',
-      250:  '🥇 Pro',
-      500:  '🏆 Champion',
+      50: '🥉 Starter',
+      100: '🥈 Achiever',
+      250: '🥇 Pro',
+      500: '🏆 Champion',
       1000: '👑 Legend',
     };
 

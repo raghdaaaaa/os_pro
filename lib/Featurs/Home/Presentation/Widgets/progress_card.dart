@@ -51,7 +51,9 @@ class ProgressCard extends StatelessWidget {
                 height: 47,
                 width: 130,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/schedule');
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryCardColor,
                     foregroundColor: AppColors.textPrimary,

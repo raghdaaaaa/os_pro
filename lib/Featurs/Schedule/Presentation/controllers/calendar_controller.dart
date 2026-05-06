@@ -15,11 +15,16 @@ import 'package:brain_stack/services/task_service.dart';
 
 class CalendarController extends ChangeNotifier {
   final _taskService = TaskService();
-  final _auth        = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
 
   String get userId => _auth.currentUser?.uid ?? '';
 
   DateTime selectedDate = DateTime.now();
+
+  CalendarController() {
+    final now = DateTime.now();
+    selectedDate = DateTime(now.year, now.month, now.day);
+  }
 
   // Full task stream — filter it using tasksForDate()
   Stream<List<TaskModel>> get allTasksStream => _taskService.getTasks(userId);
@@ -32,17 +37,18 @@ class CalendarController extends ChangeNotifier {
 
   // Returns only tasks that match the given date
   List<TaskModel> tasksForDate(List<TaskModel> all, DateTime date) {
-    return all.where((t) =>
-      t.dueDate.year  == date.year  &&
-      t.dueDate.month == date.month &&
-      t.dueDate.day   == date.day
-    ).toList();
+    return all
+        .where((t) =>
+            t.dueDate.year == date.year &&
+            t.dueDate.month == date.month &&
+            t.dueDate.day == date.day)
+        .toList();
   }
 
   // Returns set of dates that have at least one task → put a dot on calendar
   Set<DateTime> datesWithTasks(List<TaskModel> all) {
-    return all.map((t) =>
-      DateTime(t.dueDate.year, t.dueDate.month, t.dueDate.day)
-    ).toSet();
+    return all
+        .map((t) => DateTime(t.dueDate.year, t.dueDate.month, t.dueDate.day))
+        .toSet();
   }
 }

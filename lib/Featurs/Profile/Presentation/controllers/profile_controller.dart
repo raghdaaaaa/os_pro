@@ -15,7 +15,7 @@ import 'package:brain_stack/services/auth_service.dart';
 
 class ProfileController extends ChangeNotifier {
   final _auth = AuthService();
-  final _db   = FirebaseFirestore.instance;
+  final _db = FirebaseFirestore.instance;
 
   String get userId => FirebaseAuth.instance.currentUser?.uid ?? '';
 
@@ -24,10 +24,19 @@ class ProfileController extends ChangeNotifier {
 
   // Call this once in initState() of the Profile screen
   Future<void> loadUserData() async {
-    isLoading = true; notifyListeners();
+    isLoading = true;
+    notifyListeners();
+
+    if (userId.isEmpty) {
+      isLoading = false;
+      notifyListeners();
+      return;
+    }
+
     final doc = await _db.collection('users').doc(userId).get();
-    userData  = doc.data();
-    isLoading = false; notifyListeners();
+    userData = doc.data();
+    isLoading = false;
+    notifyListeners();
   }
 
   // Save new username to Firestore

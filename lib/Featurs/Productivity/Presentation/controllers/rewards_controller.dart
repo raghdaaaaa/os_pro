@@ -13,21 +13,23 @@ import 'package:brain_stack/services/rewards_service.dart';
 
 class RewardsController extends ChangeNotifier {
   final _rewards = RewardsService();
-  final _auth    = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
 
   String get userId => _auth.currentUser?.uid ?? '';
 
   // Use this with StreamBuilder — auto-updates when points change
-  Stream<Map<String, dynamic>> get rewardsStream =>
-      _rewards.getUserRewards(userId);
+  Stream<Map<String, dynamic>> get rewardsStream {
+    if (userId.isEmpty) return const Stream.empty();
+    return _rewards.getUserRewards(userId);
+  }
 
   // Returns badge name based on points total
   String badgeLabel(int points) {
     if (points >= 1000) return '👑 Legend';
-    if (points >= 500)  return '🏆 Champion';
-    if (points >= 250)  return '🥇 Pro';
-    if (points >= 100)  return '🥈 Achiever';
-    if (points >= 50)   return '🥉 Starter';
+    if (points >= 500) return '🏆 Champion';
+    if (points >= 250) return '🥇 Pro';
+    if (points >= 100) return '🥈 Achiever';
+    if (points >= 50) return '🥉 Starter';
     return '🌱 Beginner';
   }
 
